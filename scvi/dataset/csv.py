@@ -1,6 +1,7 @@
 from .dataset import GeneExpressionDataset
 import pandas as pd
 import numpy as np
+import os
 
 
 class CsvDataset(GeneExpressionDataset):
@@ -48,6 +49,7 @@ class CsvDataset(GeneExpressionDataset):
     def preprocess(self):
         print("Preprocessing dataset")
         print(self.save_path+self.download_name)
+        print(os.path.exists(self.save_path+self.download_name))
         if self.gene_by_cell:
             data = pd.read_csv(self.save_path + self.download_name,
                                sep=self.sep, index_col=0, compression=self.compression).T
