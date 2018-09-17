@@ -37,8 +37,8 @@ class CsvDataset(GeneExpressionDataset):
         self.sep = sep
         self.gene_by_cell = gene_by_cell  # Whether the original dataset is genes by cells
 
-        data, gene_names = self.download_and_preprocess()
-
+        #data, gene_names = self.download_and_preprocess()
+        data, gene_names = self.preprocess()
         super(CsvDataset, self).__init__(
             *GeneExpressionDataset.get_attributes_from_matrix(
                 data), gene_names=gene_names)
